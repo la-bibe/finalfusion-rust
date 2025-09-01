@@ -104,6 +104,9 @@ where
                     embedding.as_slice_mut().expect("Matrix not contiguous"),
                 )
                 .map_err(|e| Error::read_error("Cannot read word embedding", e))?;
+
+            // Skip line return
+            let _ = reader.read_u8();
         }
 
         Ok(Embeddings::new_with_maybe_norms(
