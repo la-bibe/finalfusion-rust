@@ -95,7 +95,6 @@ where
 
         for idx in 0..n_words {
             let word = read_string(reader, b' ', lossy)?;
-            let word = word.trim();
             words.push(word.to_owned());
 
             let mut embedding = matrix.index_axis_mut(Axis(0), idx);
